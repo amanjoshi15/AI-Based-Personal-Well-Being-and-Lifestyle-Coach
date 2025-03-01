@@ -1,0 +1,141 @@
+.workout-container {
+  min-height: 100vh;
+  background-color: #16a34a;
+  padding: 2rem;
+}
+
+.workout-content {
+  max-width: 64rem;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.workout-title {
+  font-family: "Itim", cursive;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.exercise-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.exercise-item {
+  background-color: #27592df5;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.exercise-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(50, 7, 7, 0.1);
+}
+
+.exercise-item.completed {
+  background-color: #dcfce7;
+  color: green;
+}
+
+.exercise-item.completed .exercise-content,
+.exercise-item.completed .exercise-name,
+.exercise-item.completed .exercise-details {
+  color: green;
+}
+
+.exercise-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exercise-name {
+  font-weight: 500;
+  font-family: "Host Grotesk", serif;
+  color: #ffffff;
+}
+
+.exercise-details {
+  font-family: "Gurajada", sans-serif;
+  font-size: 25px;
+  color: #ffffff;
+}
+
+.save-button {
+  background-color: darkgreen;
+  color: rgb(255, 255, 255);
+  font-weight: 750;
+  font-size: large;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  font-family: "Host Grotesk", serif;
+  border: none;
+  cursor: pointer;
+  margin: 2rem 0;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  display: block;
+}
+
+.save-button:hover {
+  background-color: white;
+  color: darkgreen;
+}
+
+.previous-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+}
+
+.previous-title {
+  font-family: "Itim", cursive;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.previous-logs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.log-item {
+  background-color: #27592df5;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+}
+
+.log-date {
+  font-weight: 500;
+  color: white;
+  font-family: "Host Grotesk", serif;
+  margin-bottom: 0.5rem;
+}
+
+.log-exercises {
+  font-family: "Gurajada", sans-serif;
+  font-size: 25px;
+  color: white;
+}
+
+.no-logs {
+  font-family: "Host Grotesk", serif;
+  text-align: center;
+  color: white;
+  font-style: italic;
+  padding: 1rem;
+}

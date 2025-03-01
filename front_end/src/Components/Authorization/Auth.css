@@ -1,0 +1,114 @@
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
+    background-color: #4CAF50;
+    border-radius: 20px;
+}
+  
+.auth-container {
+    max-width: 400px;
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+    background-color: #1a8a40;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+  
+.auth-title {
+    font-family: "Itim", cursive;
+    color: white;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+  
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+  
+.form-group {
+    text-align: left;
+}
+  
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+    font-family: "Gurajada", sans-serif;
+    font-size: x-large;
+    font-weight: 500;
+}
+  
+.auth-container input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #27592df5;
+    border-radius: 8px;
+    background-color: #27592df5;
+    font-size: 16px;
+    color: white;
+    box-sizing: border-box;
+}
+  
+.auth-container input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+  
+.auth-button {
+    width: 100%;
+    padding: 12px;
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    font-family: "Host Grotesk", serif;
+}
+  
+.auth-button:hover {
+    background-color: white;
+    color: darkgreen;
+}
+  
+.auth-message {
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}
+  
+.auth-message:empty {
+    display: none;
+}
+  
+.auth-link {
+    margin-top: 15px;
+    font-size: 15px;
+    color: white;
+    font-family: "Gurajada", sans-serif;
+    font-size: x-large;
+}
+  
+.auth-link span {
+    color: #181f18;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+  
+.auth-link span:hover {
+    color: white;
+}

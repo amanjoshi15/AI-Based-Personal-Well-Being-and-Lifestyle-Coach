@@ -1,0 +1,28 @@
+#sidebarstyle {
+    width: 350px;
+    background-color: #41ad4ef5;
+    padding: 0px 20px;
+    border: 2px groove rgb(115, 186, 116);
+    border-radius: 10px;
+}
+
+#log1 {
+    color: white;
+    font-family: "Itim", cursive;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card1 {
+    font-family: "Sour Gummy", sans-serif;
+}
+
+.box {
+    border: 2px groove rgb(79, 129, 80);
+    background-color: #27592df5;
+    margin-left: -10px;
+    margin-right: -10px;
+    border-radius: 40px;
+}

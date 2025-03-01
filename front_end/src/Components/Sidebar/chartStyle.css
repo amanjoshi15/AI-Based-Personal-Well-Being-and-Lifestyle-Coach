@@ -1,0 +1,13 @@
+.bar {
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+}
+  
+.recharts-cartesian-axis-tick-value {
+    font-family: "Gurajada", sans-serif;
+    font-size: 20px;
+    fill: #ffffff;
+}
+  
+.bargraph {
+    padding-left: 32px;
+}

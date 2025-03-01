@@ -1,0 +1,16 @@
+.meal-planner-page {
+    background-color: green;
+    min-height: 100vh;
+    padding: 0;
+}
+  
+.content-container {
+    padding: 30px;
+}
+  
+.main-content {
+    background-color: #16a34a;
+    border-radius: 20px;
+    padding: 20px;
+    min-height: calc(100vh - 150px);
+}

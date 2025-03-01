@@ -1,0 +1,6 @@
+.feedback {
+  border: 2px groove rgb(79, 129, 80);
+  background-color: #27592df5;
+  padding: 0px 15px;
+  border-radius: 40px;
+}
