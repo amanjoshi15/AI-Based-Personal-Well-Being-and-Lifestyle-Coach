@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from './Logo.jpg';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Style1 = {
   padding: '10px',
@@ -39,6 +39,14 @@ const Card = (props) => {
 
 
 const Header = () => {
+  const navigate = useNavigate();
+  const isLoggedIn = localStorage.getItem('token'); // Check if user is logged in
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove token
+    navigate('/login'); // Redirect to login page
+  };
+
   return (
     <header style={Style1}>
       <div id='header_font' style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
@@ -62,19 +70,30 @@ const Header = () => {
           </Link>
         </li>
         <li className='navitem' style={{ margin: '0px 30px' }}>
-          <Link to="Compete.js" className='links'>
-            <Card text="Compete" className='cards' />
-          </Link>
-        </li>
-        <li className='navitem' style={{ margin: '0px 30px' }}>
-          <Link to="Leaderboard.js" className='links'>
+          <Link to="/leaderboard" className='links'>
             <Card text="Leaderboard" className='cards' />
           </Link>
         </li>
         <li className='navitem' style={{ margin: '0px 30px' }}>
-          <Link to="/login" className='links'>
-            <Card text="Login" style={{ color: 'white', backgroundColor: 'darkgreen', border: '1px solid darkgreen' }} className='loginCard' />
-          </Link>
+          {isLoggedIn ? (
+            // Show Logout button if logged in
+            <div onClick={handleLogout} className='links' style={{ cursor: 'pointer' }}>
+              <Card 
+                text="Logout" 
+                style={{ color: 'white', backgroundColor: 'darkgreen', border: '1px solid darkgreen' }} 
+                className='loginCard' 
+              />
+            </div>
+          ) : (
+            // Show Login button if not logged in
+            <Link to="/login" className='links'>
+              <Card 
+                text="Login" 
+                style={{ color: 'white', backgroundColor: 'darkgreen', border: '1px solid darkgreen' }} 
+                className='loginCard' 
+              />
+            </Link>
+          )}
         </li>
       </ul>
     </header>

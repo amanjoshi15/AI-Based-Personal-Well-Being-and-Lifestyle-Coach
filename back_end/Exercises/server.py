@@ -12,22 +12,21 @@ def pose_correct():
     try:
         mode = request.form.get('mode')
         frame = request.files.get('frame')
-
+        
         if frame is None:
-                return jsonify(error="No file uploaded"), 400
-
+            return jsonify(error="No file uploaded"), 400
+            
         file = np.frombuffer(frame.read(), np.uint8)
         frame = cv2.imdecode(file, cv2.IMREAD_COLOR)
-
+        
         if frame is None:
-                return jsonify(error="Invalid or corrupt image file"), 400
-
+            return jsonify(error="Invalid or corrupt image file"), 400
+            
         feedback, count = estimate_pose(frame, mode)
-
         return jsonify({"feedback":feedback, "count":count})
-    
+        
     except Exception as e:
-          return jsonify(error=str(e)),500
+        return jsonify(error=str(e)), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5001)

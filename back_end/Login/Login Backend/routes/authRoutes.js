@@ -7,12 +7,12 @@ router.post("/signup", async (req, res) => {
   const { email, password } = req.body;
 
   const userMongo = await UserMongo.findOne({ email });
-  if (userMongo) return res.status(400).json({ message: "User already exists" });
+  if (userMongo) return res.status(400).json({ success: false, message: "User already exists" });
 
   const newUser = new UserMongo({ email, password });
   await newUser.save();
 
-  res.status(201).json({ message: "User registered successfully" });
+  res.status(201).json({ success: true, message: "User registered successfully" });
 });
 
 router.post("/login", async (req, res) => {
@@ -20,10 +20,10 @@ router.post("/login", async (req, res) => {
 
   const userMongo = await UserMongo.findOne({ email, password });
   if (!userMongo) {
-    return res.status(400).json({ message: "Invalid email or password" });
+    return res.status(400).json({ success: false, message: "Invalid email or password" });
   }
 
-  res.json({ message: "Login successful" });
+  res.json({ success: true, message: "Login successful" });
 });
 
 module.exports = router;

@@ -16,7 +16,7 @@ const Login = () => {
       setMessage(res.data.message);
       if (res.data.success) {
         localStorage.setItem("token", res.data.token);
-        navigate("/dashboard");
+        navigate("/");
       }
     } catch (err) {
       setMessage(err.response?.data?.message || "Wrong Email-ID or Password");

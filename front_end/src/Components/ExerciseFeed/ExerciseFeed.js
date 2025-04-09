@@ -4,6 +4,7 @@ import PullUpsVideo from './Demo_Videos/Pull-Ups.mp4';
 import SquatsVideo from './Demo_Videos/Squats.mp4';
 import JumpingJacksVideo from './Demo_Videos/Jumping-Jacks.mp4';
 import RussianTwistsVideo from './Demo_Videos/Russian-Twists.mp4';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 
@@ -40,8 +41,32 @@ const ExerciseFeed = () => {
   const [mode, setMode] = useState('squat');
   const [feedback, setFeedback] = useState('');
   const [count, setCount] = useState();
+  const navigate = useNavigate();
 
   const HandleExerciseChange = (e) => setMode(e.target.value);
+
+  const handleSubmitToLeaderboard = () => {
+    if (!mode || !count) {
+      alert("Please perform an exercise to generate a count.");
+      return;
+    }
+
+    const exerciseNames = {
+      'push': "Push-Ups",
+      'pull': "Pull-Ups",
+      'squat': "Squats",
+      'jack': "Jumping Jacks",
+      'twist': "Russian Twists"
+    };
+
+    // Remove hardcoded values
+    navigate('/leaderboard', {
+      state: {
+        exercise: exerciseNames[mode],
+        reps: count
+      }
+    });
+  };
 
   useEffect(() => {
     const startCamera = async () => {
@@ -78,7 +103,7 @@ const ExerciseFeed = () => {
         formData.append('mode', mode);
 
 
-        const response = await fetch('http://localhost:5000/pose-correct', {
+        const response = await fetch('http://localhost:5001/pose-correct', {
           method: 'POST',
           body: formData,
         });
@@ -137,6 +162,24 @@ const ExerciseFeed = () => {
       <div className="feedback">
         <h3 style={{ color: 'white', fontFamily: '"Host Grotesk", serif' }} >Count:</h3>
         <p style={{ color: 'white',fontFamily: '"Gurajada", sans-serif', fontSize: '25px' }}>{count}</p>
+      </div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <button
+          onClick={handleSubmitToLeaderboard}
+          style={{
+            padding: '10px 20px',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            backgroundColor: 'darkgreen',
+            color: 'white',
+            border: 'none',
+            fontFamily: '"Host Grotesk", serif',
+            borderRadius: '8px',
+            cursor: 'pointer'
+          }}
+        >
+          Submit to Leaderboard
+        </button>
       </div>
     </div>
   );
